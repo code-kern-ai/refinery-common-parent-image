@@ -15,16 +15,16 @@ steps:
   - name: build and publish
     image: plugins/docker
     settings:
-      registry: registry.dev.onetask.ai
+      registry: registry.dev.kern.ai
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images"
+      repo: "registry.dev.kern.ai/code-kern-ai/refinery-parent-images"
       tags: ["${DRONE_COMMIT_SHA}-common", "${DRONE_COMMIT_BRANCH}-common"]
       cache_from:
-        - "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images:dev-common"
-        - "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images:${DRONE_COMMIT_BRANCH}-common"
+        - "registry.dev.kern.ai/code-kern-ai/refinery-parent-images:dev-common"
+        - "registry.dev.kern.ai/code-kern-ai/refinery-parent-images:${DRONE_COMMIT_BRANCH}-common"
 
 trigger:
   event:
@@ -48,16 +48,16 @@ steps:
   - name: build and publish
     image: plugins/docker
     settings:
-      registry: registry.dev.onetask.ai
+      registry: registry.dev.kern.ai
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images"
+      repo: "registry.dev.kern.ai/code-kern-ai/refinery-parent-images"
       tags: ["${DRONE_COMMIT_SHA}-common-arm64", "${DRONE_COMMIT_BRANCH}-common-arm64"]
       cache_from:
-        - "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images:dev-common-arm64"
-        - "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images:${DRONE_COMMIT_BRANCH}-common-arm64"
+        - "registry.dev.kern.ai/code-kern-ai/refinery-parent-images:dev-common-arm64"
+        - "registry.dev.kern.ai/code-kern-ai/refinery-parent-images:${DRONE_COMMIT_BRANCH}-common-arm64"
 
 trigger:
   branch:
