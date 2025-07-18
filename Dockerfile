@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.11-slim
 
 COPY submodules/parent-images/requirements/mini-requirements.txt .
 COPY submodules/parent-images/requirements/common-requirements.txt .
