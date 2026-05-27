@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED=1
 ENV VENV_PATH=/opt/venv
 ENV PATH="${VENV_PATH}/bin:${PATH}"
 
-RUN python -m venv "${VENV_PATH}"
+RUN python -m venv --copies "${VENV_PATH}"
 
 COPY submodules/parent-images/requirements/mini-requirements.txt .
 COPY submodules/parent-images/requirements/common-requirements.txt .
@@ -24,6 +24,6 @@ ENV PATH="${VENV_PATH}/bin:${PATH}"
 
 COPY --from=builder --chown=65532:65532 ${VENV_PATH} ${VENV_PATH}
 
-RUN python -c "import _cffi_backend, argon2.low_level, grpc, numpy.core._multiarray_umath, pandas._libs, psycopg2, pydantic_core._pydantic_core"
+RUN ["/opt/venv/bin/python", "-c", "import _cffi_backend, argon2.low_level, grpc, numpy.core._multiarray_umath, pandas._libs, psycopg2, pydantic_core._pydantic_core"]
 
 USER 65532:65532
