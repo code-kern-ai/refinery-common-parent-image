@@ -1,5 +1,5 @@
-ARG DHI_PYTHON_BUILD=dhi.io/python:3.11.11-debian12-dev
-ARG DHI_PYTHON_RUNTIME=dhi.io/python:3.11.11-debian12
+ARG DHI_PYTHON_BUILD=dhi.io/python:3.11-debian12-dev
+ARG DHI_PYTHON_RUNTIME=dhi.io/python:3.11-debian12
 
 FROM ${DHI_PYTHON_BUILD} AS builder
 
@@ -26,4 +26,4 @@ COPY --from=builder --chown=65532:65532 ${VENV_PATH} ${VENV_PATH}
 
 RUN ["/opt/venv/bin/python", "-c", "import _cffi_backend, argon2.low_level, grpc, numpy.core._multiarray_umath, pandas._libs, psycopg2, pydantic_core._pydantic_core"]
 
-USER 65532:65532
+USER nonroot
