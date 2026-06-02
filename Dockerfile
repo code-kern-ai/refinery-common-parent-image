@@ -26,4 +26,3 @@ COPY --from=builder --chown=65532:65532 ${VENV_PATH} ${VENV_PATH}
 
 RUN ["/opt/venv/bin/python", "-c", "import _cffi_backend, argon2.low_level, grpc, numpy.core._multiarray_umath, pandas._libs, psycopg2, pydantic_core._pydantic_core"]
 
-USER nonroot
