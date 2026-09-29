@@ -107,6 +107,7 @@ steps:
     depends_on:
       - submodules
     settings:
+      platform: linux/amd64
       username:
         from_secret: dockerhub_username
       password:
@@ -145,6 +146,7 @@ steps:
     depends_on:
       - submodules
     settings:
+      platform: linux/arm64
       username:
         from_secret: dockerhub_username
       password:
